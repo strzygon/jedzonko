@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="./css/bootstrap-3.1.1.min.css" rel="stylesheet"/>
+    <link href="./css/core.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script type="text/javascript" src="./js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+
+</head>
+<body ng-app="myApp">
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/home"></a>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/index">Start</a></li>
+                    <li><a href="#/budget">Testowa opcja</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+
+    <div data-ng-view></div>
+    <hr />
+    <footer>
+        <p>
+            Szymon Pawlik
+        </p>
+    </footer>
+</div>
+
+<script type="text/javascript" src="./app/app.js"></script>
+<script type="text/javascript" src="./app/services.js"></script>
+<script type="text/javascript" src="./app/services/adhocService.js"></script>
+
+</body>
+</html>
