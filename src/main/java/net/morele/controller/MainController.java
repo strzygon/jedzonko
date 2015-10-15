@@ -12,11 +12,6 @@ public class MainController {
 
     static final Logger logger = Logger.getLogger(MainController.class);
 
-/*  @RequestMapping("/")
-    String index() {
-        logger.info("index");
-        return "index";
-    }*/
     @RequestMapping({
             "/",
             "/restaurant/{id:\\w+}",
