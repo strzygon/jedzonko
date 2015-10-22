@@ -1,18 +1,22 @@
 (function () {
 
     angular.module("app.controller").controller("NavigationController",NavigationController);
+
     NavigationController.$inject = ['$rootScope','$scope','$http', '$location'];
+
     function NavigationController($rootScope, $scope, $http, $location){
         console.log("test");
         var vm = this;
         var authenticate = function(credentials, callback) {
 
-            var headers = credentials ? {
+            var headers = vm.credentials ? {
                 authorization : "Basic "
                 + btoa(credentials.username + ":"
                     + credentials.password)
             } : {};
-            console.log("user1");
+
+            console.log("headers:"+headers);
+
             $http.get('user', {
                 headers : headers
             }).success(function(data) {
@@ -32,19 +36,29 @@
 
         authenticate();
 
-        $scope.credentials = {};
-        $scope.login = function() {
-            authenticate($scope.credentials, function() {
+        console.log("test:authenticated:"+$rootScope.authenticated);
+        vm.credentials = {};
+        vm.login = function() {
+            console.log("test:"+vm.credentials.username);
+            authenticate(vm.credentials, function() {
                 if ($rootScope.authenticated) {
                     $location.path("/");
-                    $scope.error = false;
+                    vm.error = false;
                 } else {
                     $location.path("/login");
-                    $scope.error = true;
+                    vm.error = true;
                 }
             });
         };
 
+        vm.logout = function() {
+            $http.post('logout', {}).success(function() {
+                $rootScope.authenticated = false;
+                $location.path("/");
+            }).error(function(data) {
+                $rootScope.authenticated = false;
+            });
+        }
 
     }
 

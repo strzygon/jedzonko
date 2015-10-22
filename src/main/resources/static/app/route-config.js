@@ -11,10 +11,6 @@
                 templateUrl: '/partials/home/home.html',
                 controller: 'HomeController',
                 controllerAs: 'vm'})
-            .when('/index',{
-                templateUrl: '/partials/home/home.html',
-                controller: 'HomeController',
-                controllerAs: 'vm'})
             .when('/',{
                 templateUrl: '/partials/login/login.html',
                 controller: 'NavigationController',
