@@ -33,15 +33,10 @@ public class MainController {
 
     static final Logger logger = Logger.getLogger(MainController.class);
 
-    @RequestMapping({
-            "/",
-            "/restaurant/{id:\\w+}",
-    })
-    public String index() {
-        System.out.println("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
-        return "forward:/index.html";
+    @RequestMapping(value = "/{[path:[^\\.]*}")
+    public String redirect() {
+        logger.info("redirect");
+        return "forward:/";
     }
-
-
 
 }

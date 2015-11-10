@@ -31,8 +31,6 @@ public class NavigationController {
 
     @RequestMapping("/user")
     public Principal user(Principal user) {
-
-        System.out.println("TEST:"+user.getName()+" haslo:"+user.toString());
         return user;
     }
 
@@ -42,8 +40,8 @@ public class NavigationController {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http.httpBasic().and().authorizeRequests()
-                    .antMatchers("/index.html", "/partials/home/home.html", "/partials/home/login.html", "/").permitAll().anyRequest()
-                    .authenticated().and().csrf()
+                    .antMatchers("/**")
+                    .permitAll().anyRequest().authenticated().and().csrf()
                     .csrfTokenRepository(csrfTokenRepository()).and()
                     .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
         }
